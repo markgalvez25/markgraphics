@@ -1,0 +1,115 @@
+@use '../util/' as u;
+
+.header {
+    display: grid;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: min(100% - 32px, 1000px);
+    margin-inline: auto;
+    margin-top: 0;
+    z-index: 1;
+    
+    @include u.breakpoint-up(medium) {
+        width: min(100% - 32px, 1000px);
+        display: flex;
+        justify-content: space-between;
+    }
+
+    @include u.breakpoint-up(large) {
+        
+    }
+
+
+    &__social {
+        display: block;
+    }
+
+    
+    &__home h1{
+        color: var(--text1);
+        font-size: var(--fs-24);
+        font-size: clamp(1.5rem, 1.35rem + 0.64vw, 1.75rem);
+        margin-bottom: 20px;
+        margin-top: 20px;
+        cursor: pointer;
+
+        @include u.breakpoint-up(medium) {
+            color: var(--text1);    
+            margin-left:27px;
+        }
+
+        @include u.breakpoint-up(large) {
+            margin-left: 65px;
+        }
+
+        @include u.breakpoint-up(mlarge) {
+            margin-left: 65px;
+        }
+
+        
+        & span {
+            transition: color var(--transition-150ms);
+        }
+
+        &:hover span{
+            color: var(--text2);
+
+            @include u.breakpoint-up(medium) {
+                color: var(--text-color-wh);
+            }
+
+            @include u.breakpoint-up(large) {
+                
+            }
+        }
+    }
+    
+    &__social_links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include u.breakpoint-up(medium) {
+            justify-content: center;
+        }
+ 
+        & a {
+            gap: 20px;
+            display: grid;
+            height: 24px;
+            transition: all var(--transition-150ms);
+
+            @include u.breakpoint-up(medium) {
+                justify-content: space-around;
+                margin-left: 25px;
+                padding-top: 4px;
+                width: 32px;
+                height: 32px;
+            }
+            
+            & svg > path {
+                fill: var(--text1);
+                transition: fill var(--transition-150ms);
+
+                @include u.breakpoint-up(medium) {
+                    fill: var(--text2);
+                }
+
+                @include u.breakpoint-up(large) {
+                    fill: var(--text2);
+                    width: 32px;
+                    height: 32px;
+                }
+            }
+
+            &:hover > svg > path {
+                fill: var(--text2);
+                @include u.breakpoint-up(medium) {
+                    fill: var(--accent-color);
+                }
+            }
+        }
+    }
+    
+}

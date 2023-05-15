@@ -1,0 +1,128 @@
+@use '../util/' as u;
+
+.projects__wrap {
+    display: block;
+}
+
+.projects {
+    display: block;
+    width: min(100% - 32px, 1000px);
+    margin-inline: auto;
+
+    &__header {
+        margin-top: 22px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+       
+        & h1 {
+            font-size: var(--fs-32);
+            font-size: clamp(2rem, 1.10rem + 3.84vw, 3.5rem);
+            margin-bottom: 0;
+        }
+
+        .hero__contactme {
+            
+            & span {
+                margin-top: 0;
+                font-size: var(--fs-14);
+                font-size: clamp(0.875rem, 0.6499999999999999rem + 0.9600000000000001vw, 1.25rem);
+                padding-bottom: 10px;
+                border-bottom: 2px solid var(--accent-color);
+
+                @include u.breakpoint-up(large) {
+                    border-bottom: 4px solid var(--accent-color);
+                }
+            }    
+        }
+    }
+
+    &__card {
+        display: grid;
+        justify-content: center;
+        align-items: flex-start;
+        grid-template-columns: repeat(1, 1fr);
+
+        @include u.breakpoint-up(medium) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        @include u.breakpoint-up(medium) {
+            gap: 26px;
+        }
+
+        &_content {
+            display: block;
+            margin-top: 28px;
+            margin-bottom: 44px;
+            cursor: pointer;
+
+            @include u.breakpoint-up (medium) {
+                margin-bottom: 0;
+            }
+
+            &:hover {
+                & img { 
+                    transform: scale(1.15);
+                }
+            }
+            
+            &_photo {
+                overflow: hidden;
+            }
+
+            & img {
+                width: 100%;
+                transform: scale(1.04);
+                transition: transform var(--transition-250ms);
+            }
+        
+            &_details {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 16px;
+                padding-top: 18px;
+            }
+
+            &_title {
+
+                & h1 {
+                    font-size: var(--fs-26);
+                    font-size: clamp(1.625rem, 1.25rem + 1.6vw, 2.25rem);
+                    margin-bottom: 0;
+                    transition: color var(--transition-150ms);
+                    &:hover {
+                        color: var(--accent-color);
+                    }
+                }
+            }
+
+            &_software {
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                margin-top: 5px;
+                & svg {
+                    width: 24px;
+                    height: 24px;
+                    transition: fill var(--transition-150ms);
+                    fill: var(--color-grey);
+
+                    &:hover {
+                        fill: var(--accent-color);
+                    }
+
+                    @include u.breakpoint-up(large) {
+                        width: 32px;
+                        height: 32px;
+                    }
+                    
+                }
+            }
+        }
+    }
+}
